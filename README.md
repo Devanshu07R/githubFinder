@@ -44,6 +44,23 @@ When a user types a username and clicks search, the JavaScript function validate
 ---
 
 ```js
+async function getUserData(username) {
+  try {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    
+    if (!response.ok) {
+      main.innerHTML = "No user found";
+      return;
+    }
+
+    const data = await response.json();
+   
+  } catch (error) {
+    main.innerHTML = "Something went wrong.";
+    console.error(error);
+  }
+}
+
 btn.addEventListener("click", () => {
   usernameValue = username.value.trim();
   
