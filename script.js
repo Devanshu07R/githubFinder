@@ -8,8 +8,6 @@ let overly = document.querySelector(".overly");
 console.log(overly);
 let clearAllBtn = document.querySelector(".clear-all-btn");
 
-
-
 async function getUserData(username) {
     try {
         const response = await fetch(`https://api.github.com/users/${username}`);
@@ -17,10 +15,8 @@ async function getUserData(username) {
             main.innerHTML = `<p class="text-red-600 text-center text-xl font-semibold mt-10"> No User Found</p>`;
             return;
         }
-
         const data = await response.json();
         console.log(data);
-
         let card = `<div class="w-full max-w-2xl mt-10 bg-white rounded-xl shadow-md p-6 flex flex-col sm:flex-row items-center space-x-0 sm:space-x-6 space-y-6 sm:space-y-0">
             <img class="w-40 h-40 rounded-full object-cover border-4 border-gray-300" src="${data.avatar_url}" />
             <div class="text-center sm:text-left">
@@ -43,7 +39,6 @@ async function getUserData(username) {
                 <a href="${data.html_url}" target="_blank" class="mt-4 inline-block px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">View GitHub Profile</a>
             </div>
         </div>`;
-
         main.innerHTML = card;
         saveData(data)
         showHistory();
@@ -93,6 +88,7 @@ searchHistoryBtn.addEventListener("click", () => {
     }
 })
 
+
 // showcase githube user history data
 function showHistory() {
     let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
@@ -137,7 +133,6 @@ function showHistory() {
 showHistory();
 
 // localstorage save function
-
 function saveData(data) {
     let history = JSON.parse(localStorage.getItem('searchHistory')) || [];
     console.log("Old history:", history);
