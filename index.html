@@ -6,23 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GitHub Finder UI</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .overly {
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .search-history-div::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-start p-6">
+<body class="overflow-hidden">
+    <div class="overly right-0 w-full h-full  absolute z-30 "></div>
+    <button
+        class="px-[25px] py-[10px] z-30 rounded capitalize bg-blue-600 text-white absolute top-3 right-3 search-history-btn">search-history</button>
 
-    <!-- Search Bar -->
-    <div class="w-full max-w-md mt-10">
-        <input type="text" placeholder="Enter GitHub username..." id="username"
-            class="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <button id="btn" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
-            Search
-        </button>
-        <p class="text-red-800 capitalize" id="error-sms"></p>
+    <div
+        class="search-history-div w-[50vw] z-40 top-[20%] absolute bg-gray-200 rounded-2xl h-[80vh] overflow-scroll duration-0 right-[-100%] p-9">
+        <button class="clear-all-btn px-[25px] py-[15px] rounded bg-blue-900">Clear All</button>
     </div>
 
+    <div class="container absolute top-1/2 left-[60%] transform -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] ">
+        <div class="flex items-start gap-5 ">
+            <div class="w-[50vw] max-w-md mt-10">
+                <input type="text" placeholder="Enter GitHub username..." id="username"
+                    class="w-full p-3 rounded-lg border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                <button id="btn"
+                    class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                    Search
+                </button>
+                <p class="text-red-800 capitalize" id="error-sms"></p>
+            </div>
 
-    <div class="main">
-        
+
+
+        </div>
+
+
+
+        <div class="main">
+
+        </div>
     </div>
 
     </div>
