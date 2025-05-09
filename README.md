@@ -4,7 +4,7 @@ A simple and clean web application that allows users to search for any GitHub pr
 
 ---
 
-## 📸 Preview.
+## 📸 Preview
 
 ![App Preview](project.png)
 
